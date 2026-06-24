@@ -19,17 +19,17 @@
       --soft:  #f9eeee;
     }
 
-    html { scroll-behavior: smooth; }
+    html { scroll-behavior:smooth; }
     body {
-      background: var(--cream);
-      color: var(--dark);
-      font-family: 'Lato', sans-serif;
-      overflow-x: hidden;
-      animation: pageIn .6s ease both;
+      background:var(--cream);
+      color:var(--dark);
+      font-family:'Lato',sans-serif;
+      overflow-x:hidden;
+      animation:pageIn .6s ease both;
     }
     @keyframes pageIn {
-      from { opacity:0; transform: scale(.98); }
-      to   { opacity:1; transform: scale(1); }
+      from { opacity:0; transform:scale(.98); }
+      to   { opacity:1; transform:scale(1);   }
     }
 
     /* PETALS */
@@ -40,13 +40,17 @@
       100% { transform:translateY(110vh) rotate(540deg); opacity:0;  }
     }
 
-    /* ── DO YOU LOVE ME ── */
+    .divider { display:flex; align-items:center; gap:14px; margin:0 auto 10px; max-width:340px; }
+    .divider::before,.divider::after { content:''; flex:1; height:1px; background:var(--gold); }
+    .divider span { color:var(--gold); font-size:1.1rem; }
+
+    /* DO YOU LOVE ME */
     #love-dialog {
       position:relative; z-index:1;
       min-height:100vh;
       display:flex; align-items:center; justify-content:center;
       padding:60px 20px;
-      background: radial-gradient(ellipse at 50% 50%, #f5dde4 0%, transparent 70%), var(--cream);
+      background:radial-gradient(ellipse at 50% 50%, #f5dde4 0%, transparent 70%), var(--cream);
     }
     .card {
       background:white;
@@ -76,7 +80,7 @@
       font-family:'Playfair Display',serif; font-size:1rem;
       cursor:pointer; letter-spacing:1px;
       box-shadow:0 4px 16px rgba(201,85,111,.35);
-      transition: background .2s, transform .2s, padding .35s, font-size .35s, box-shadow .2s;
+      transition:background .2s, transform .2s, padding .35s, font-size .35s, box-shadow .2s;
     }
     .btn-yes:hover { background:var(--wine); transform:translateY(-2px); box-shadow:0 8px 24px rgba(201,85,111,.45); }
 
@@ -89,13 +93,13 @@
     }
     .btn-no.roaming { position:fixed; transition:none; z-index:999; }
 
-    /* ── COUNTDOWN ── */
+    /* COUNTDOWN */
     #countdown {
       position:relative; z-index:1;
       padding:80px 20px; text-align:center;
       background:var(--wine); color:var(--cream);
     }
-    #countdown .section-label { font-size:.72rem; letter-spacing:4px; text-transform:uppercase; color:var(--gold); margin-bottom:12px; }
+    #countdown .section-label { font-size:.72rem; letter-spacing:4px; text-transform:uppercase; color:var(--gold); margin-bottom:12px; display:block; }
     #countdown h2 { font-family:'Playfair Display',serif; font-size:clamp(1.6rem,4vw,2.4rem); margin-bottom:40px; color:white; }
     .tickers { display:flex; justify-content:center; gap:24px; flex-wrap:wrap; }
     .ticker  { display:flex; flex-direction:column; align-items:center; }
@@ -113,7 +117,50 @@
     .ticker-lbl { margin-top:10px; font-size:.68rem; letter-spacing:3px; text-transform:uppercase; color:var(--gold); }
     .ticker-sep { font-family:'Playfair Display',serif; font-size:3rem; color:var(--gold); align-self:center; line-height:1; opacity:.6; }
 
-    /* ── YES OVERLAY ── */
+    /* LETTER */
+    #letter {
+      position:relative; z-index:1;
+      padding:80px 20px;
+      display:flex; flex-direction:column; align-items:center;
+      background:radial-gradient(ellipse at 0% 50%, #f9e4ec33 0%, transparent 60%), var(--cream);
+    }
+    .letter-paper {
+      max-width:520px; width:100%;
+      background:#fffdf8;
+      border:1px solid #e8d8c8;
+      padding:52px 48px; border-radius:2px;
+      box-shadow:0 2px 0 #e8d8c8, 0 4px 0 #f0e8de, 0 16px 40px rgba(0,0,0,.08);
+      position:relative;
+    }
+    .letter-paper::before {
+      content:''; position:absolute; inset:0;
+      background:repeating-linear-gradient(transparent,transparent 31px,#f0e6e6 31px,#f0e6e6 32px);
+      border-radius:2px; pointer-events:none;
+    }
+    .letter-content { position:relative; z-index:1; }
+    .letter-date    { font-size:.78rem; color:var(--gold); letter-spacing:2px; margin-bottom:20px; text-align:right; }
+    .letter-greeting { font-family:'Dancing Script',cursive; font-size:1.7rem; color:var(--rose); margin-bottom:18px; }
+    .letter-body { font-size:.97rem; line-height:2; color:#5a3a3a; }
+    .letter-body p { margin-bottom:14px; }
+    .letter-sign { font-family:'Dancing Script',cursive; font-size:1.5rem; color:var(--wine); margin-top:28px; }
+
+    /* GALLERY */
+    #gallery { position:relative; z-index:1; padding:80px 20px; text-align:center; background:var(--soft); }
+    .section-header { margin-bottom:44px; }
+    .section-header .sec-label { font-size:.72rem; letter-spacing:4px; text-transform:uppercase; color:var(--gold); display:block; margin-bottom:8px; }
+    .section-header h2 { font-family:'Playfair Display',serif; font-size:clamp(1.5rem,4vw,2.2rem); color:var(--wine); }
+    .polaroids { display:flex; flex-wrap:wrap; justify-content:center; gap:30px; max-width:760px; margin:0 auto; }
+    .polaroid {
+      background:white; padding:16px 16px 44px;
+      box-shadow:0 4px 20px rgba(0,0,0,.12); width:180px;
+      transform:rotate(var(--r));
+      transition:transform .3s ease, box-shadow .3s;
+    }
+    .polaroid:hover { transform:rotate(0deg) scale(1.05); box-shadow:0 12px 36px rgba(0,0,0,.2); z-index:2; }
+    .polaroid-img { width:100%; height:148px; background:var(--blush); display:flex; align-items:center; justify-content:center; font-size:3rem; border-radius:1px; }
+    .polaroid-cap { font-family:'Dancing Script',cursive; font-size:.85rem; color:#999; text-align:center; margin-top:8px; }
+
+    /* YES OVERLAY */
     #yes-overlay {
       display:none; position:fixed; inset:0; z-index:9999;
       background:var(--wine);
@@ -137,7 +184,6 @@
     }
     .btn-close-ov:hover { background:var(--gold); color:var(--wine); }
 
-    /* FOOTER */
     footer {
       position:relative; z-index:1;
       padding:32px 20px; text-align:center;
@@ -155,7 +201,7 @@
 <!-- YES OVERLAY -->
 <div id="yes-overlay">
   <div class="ov-heart">💌</div>
-  <h1>I knew it, Chao Chao~</h1>
+  <h1>I knew it, my ChaoChao~</h1>
   <p>Cảm ơn em đã yêu anh. Mỗi ngày có em là một ngày anh không muốn kết thúc. 🌹</p>
   <div class="ov-gold">" You are my favourite love story. "</div>
   <button class="btn-close-ov" onclick="document.getElementById('yes-overlay').classList.remove('show')">Close ✕</button>
@@ -167,7 +213,7 @@
     <span class="card-icon">🐻</span>
     <p class="card-label">A very important question</p>
     <h2 class="card-question">Do you love me?</h2>
-    <p class="card-sub">Think carefully, Chao Chao.<br>There is only one right answer. 🌹</p>
+    <p class="card-sub">Think carefully, my ChaoChao.<br>There is only one right answer. 🌹</p>
     <div class="btns" id="btns">
       <button class="btn-yes" id="btnYes" onclick="pressYes()">Yes ♥</button>
       <button class="btn-no"  id="btnNo">No</button>
@@ -177,7 +223,7 @@
 
 <!-- COUNTDOWN -->
 <section id="countdown">
-  <p class="section-label">Our time together</p>
+  <span class="section-label">Our time together</span>
   <h2>We have been in love for…</h2>
   <div class="tickers">
     <div class="ticker"><div class="ticker-num" id="tDays">0</div><div class="ticker-lbl">Days</div></div>
@@ -190,7 +236,40 @@
   </div>
 </section>
 
-<footer>Made with <span>♥</span> for Chao Chao &nbsp;·&nbsp; Every day is a gift</footer>
+<!-- LETTER -->
+<section id="letter">
+  <div class="divider" style="margin-bottom:40px"><span>♦</span></div>
+  <div class="letter-paper">
+    <div class="letter-content">
+      <div class="letter-date">21 tháng 3, 2026</div>
+      <div class="letter-greeting">my ChaoChao yêu dấu,</div>
+      <div class="letter-body">
+        <p>Em biết không, mỗi buổi sáng anh thức dậy và điều đầu tiên anh nghĩ đến chính là em. Nụ cười của em, ánh mắt của em — tất cả đều làm trái tim anh ấm áp theo một cách mà anh không thể diễn tả bằng lời.</p>
+        <p>Cảm ơn em đã luôn ở đây. Cảm ơn em vì những lúc em nắm tay anh, vì những tin nhắn nhỏ giữa ngày, vì tất cả những điều tưởng chừng bình thường nhưng lại là những kỷ niệm đẹp nhất trong cuộc đời anh.</p>
+        <p>Hôm nay, ngày mai và mãi mãi — anh chỉ muốn viết lên đây rằng: <strong>anh yêu em rất nhiều.</strong></p>
+      </div>
+      <div class="letter-sign">Mãi là của em, ♥</div>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section id="gallery">
+  <div class="section-header">
+    <span class="sec-label">Our little moments</span>
+    <h2>Memories we keep</h2>
+  </div>
+  <div class="polaroids">
+    <div class="polaroid" style="--r:-4deg"><div class="polaroid-img">☕</div><div class="polaroid-cap">Morning coffee</div></div>
+    <div class="polaroid" style="--r:3deg"> <div class="polaroid-img">🌅</div><div class="polaroid-cap">Golden hour</div></div>
+    <div class="polaroid" style="--r:-2deg"><div class="polaroid-img">🌸</div><div class="polaroid-cap">Spring walk</div></div>
+    <div class="polaroid" style="--r:5deg"> <div class="polaroid-img">🕯️</div><div class="polaroid-cap">Candlelight</div></div>
+    <div class="polaroid" style="--r:-3deg"><div class="polaroid-img">🎶</div><div class="polaroid-cap">Our song</div></div>
+    <div class="polaroid" style="--r:2deg"> <div class="polaroid-img">💌</div><div class="polaroid-cap">Love notes</div></div>
+  </div>
+</section>
+
+<footer>Made with <span>♥</span> for my ChaoChao &nbsp;·&nbsp; Since 21 March 2026</footer>
 
 <script>
   /* PETALS */
@@ -211,45 +290,48 @@
   }
   setInterval(spawnPetal,450);
 
-  /* COUNTDOWN — bắt đầu yêu 21/03/2026 lúc 21:00 */
-  const START = new Date('2026-03-21T21:00:00');
+  /* COUNTDOWN — 21 tháng 3 năm 2026 */
+  const START = new Date('2026-03-21T00:00:00');
   function tick(){
-    const now=new Date(), d=now-START;
-    if(d<0){
-      document.getElementById('tDays').textContent  = '0';
-      document.getElementById('tHours').textContent = '00';
-      document.getElementById('tMins').textContent  = '00';
-      document.getElementById('tSecs').textContent  = '00';
+    const now = new Date();
+    const diff = now - START;
+    const pad = n => String(n).padStart(2,'0');
+    if(diff < 0){
+      const abs = Math.abs(diff);
+      document.getElementById('tDays').textContent  = Math.floor(abs/86400000);
+      document.getElementById('tHours').textContent = pad(Math.floor(abs/3600000)%24);
+      document.getElementById('tMins').textContent  = pad(Math.floor(abs/60000)%60);
+      document.getElementById('tSecs').textContent  = pad(Math.floor(abs/1000)%60);
+      document.querySelector('#countdown h2').textContent = 'Còn bao lâu nữa…';
       return;
     }
-    const pad=n=>String(n).padStart(2,'0');
-    document.getElementById('tDays').textContent  = Math.floor(d/86400000);
-    document.getElementById('tHours').textContent = pad(Math.floor(d/3600000)%24);
-    document.getElementById('tMins').textContent  = pad(Math.floor(d/60000)%60);
-    document.getElementById('tSecs').textContent  = pad(Math.floor(d/1000)%60);
+    document.getElementById('tDays').textContent  = Math.floor(diff/86400000);
+    document.getElementById('tHours').textContent = pad(Math.floor(diff/3600000)%24);
+    document.getElementById('tMins').textContent  = pad(Math.floor(diff/60000)%60);
+    document.getElementById('tSecs').textContent  = pad(Math.floor(diff/1000)%60);
   }
   setInterval(tick,1000); tick();
 
   /* NO ESCAPE */
-  const btnNo=document.getElementById('btnNo');
-  const btnYes=document.getElementById('btnYes');
+  const btnNo  = document.getElementById('btnNo');
+  const btnYes = document.getElementById('btnYes');
   let escaped=false, yesLevel=0;
   const yesLabels=['Yes ♥','Yes!! 🌹','Of course 💌','Always ♥','Forever & ever 💍'];
   function runAway(e){
     if(e) e.preventDefault();
     if(!escaped){ escaped=true; btnNo.classList.add('roaming'); document.body.appendChild(btnNo); }
     const m=80;
-    btnNo.style.left=(m+Math.random()*(window.innerWidth-m*2))+'px';
+    btnNo.style.left=(m+Math.random()*(window.innerWidth -m*2))+'px';
     btnNo.style.top =(m+Math.random()*(window.innerHeight-m*2))+'px';
     btnNo.style.transform='translate(-50%,-50%)';
     yesLevel=Math.min(yesLevel+1,yesLabels.length-1);
     const s=1+yesLevel*0.22, p=13+yesLevel*8;
-    btnYes.style.fontSize=s+'rem';
-    btnYes.style.padding=p+'px '+(p*2.4)+'px';
+    btnYes.style.fontSize =s+'rem';
+    btnYes.style.padding  =p+'px '+(p*2.4)+'px';
     btnYes.style.boxShadow=`0 ${6+yesLevel*3}px ${20+yesLevel*8}px rgba(201,85,111,.${4+yesLevel})`;
     btnYes.textContent=yesLabels[yesLevel];
   }
-  btnNo.addEventListener('mouseover',runAway);
+  btnNo.addEventListener('mouseover', runAway);
   btnNo.addEventListener('touchstart',runAway,{passive:false});
 
   /* YES */

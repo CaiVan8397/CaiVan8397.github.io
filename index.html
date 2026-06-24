@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>💌 For Chao Chao</title>
+  <title>💌 my ChaoChao & Anh</title>
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=Lato:wght@300;400;700&family=Dancing+Script:wght@600;700&display=swap');
 
@@ -30,168 +30,126 @@
     }
 
     /* PETALS */
-    #petals {
-      position: fixed; inset: 0;
-      pointer-events: none;
-      z-index: 0;
-      overflow: hidden;
-    }
-    .petal {
-      position: absolute;
-      top: -40px;
-      animation: petalFall linear infinite;
-      user-select: none;
-    }
+    #petals { position:fixed; inset:0; pointer-events:none; z-index:0; overflow:hidden; }
+    .petal  { position:absolute; top:-40px; animation:petalFall linear infinite; user-select:none; }
     @keyframes petalFall {
-      0%   { transform: translateY(-40px) rotate(0deg);   opacity:.8; }
-      100% { transform: translateY(110vh) rotate(540deg); opacity:0;  }
+      0%   { transform:translateY(-40px) rotate(0deg);   opacity:.8; }
+      100% { transform:translateY(110vh) rotate(540deg); opacity:0;  }
     }
 
     /* ENVELOPE */
     .scene {
-      position: relative; z-index: 1;
-      display: flex; flex-direction: column;
-      align-items: center; text-align: center;
-      gap: 0;
+      position:relative; z-index:1;
+      display:flex; flex-direction:column;
+      align-items:center; text-align:center;
+      gap:0;
     }
 
     .env-wrap {
-      position: relative;
-      width: 300px; height: 210px;
-      cursor: pointer;
-      margin-bottom: 48px;
+      position:relative;
+      width:300px; height:210px;
+      cursor:pointer;
+      margin-bottom:48px;
     }
-
-    /* body */
     .env-body {
-      position: absolute; inset: 0;
-      background: var(--soft);
-      border: 2px solid var(--blush);
-      border-radius: 4px 4px 10px 10px;
-      box-shadow: 0 12px 48px rgba(201,85,111,.2);
-      overflow: hidden;
+      position:absolute; inset:0;
+      background:var(--soft);
+      border:2px solid var(--blush);
+      border-radius:4px 4px 10px 10px;
+      box-shadow:0 12px 48px rgba(201,85,111,.2);
+      overflow:hidden;
     }
-    /* bottom V */
     .env-body::before {
       content:'';
       position:absolute; bottom:0; left:0;
-      border-left:  150px solid transparent;
-      border-right: 150px solid transparent;
-      border-bottom: 105px solid var(--blush);
+      border-left:150px solid transparent;
+      border-right:150px solid transparent;
+      border-bottom:105px solid var(--blush);
       opacity:.5;
     }
-    /* left crease */
     .env-body::after {
       content:'';
       position:absolute; top:0; left:0;
-      border-top:   210px solid var(--blush);
-      border-right: 150px solid transparent;
+      border-top:210px solid var(--blush);
+      border-right:150px solid transparent;
       opacity:.22;
     }
-
-    /* flap */
     .env-flap {
-      position: absolute; top:0; left:0; right:0;
-      height: 0;
-      border-left:  150px solid transparent;
-      border-right: 150px solid transparent;
-      border-top: 105px solid var(--blush);
-      transform-origin: top center;
-      transition: transform .55s cubic-bezier(.4,0,.2,1);
-      z-index: 2;
-      filter: drop-shadow(0 2px 4px rgba(201,85,111,.15));
+      position:absolute; top:0; left:0; right:0;
+      height:0;
+      border-left:150px solid transparent;
+      border-right:150px solid transparent;
+      border-top:105px solid var(--blush);
+      transform-origin:top center;
+      transition:transform .55s cubic-bezier(.4,0,.2,1);
+      z-index:2;
+      filter:drop-shadow(0 2px 4px rgba(201,85,111,.15));
     }
-    .env-wrap.open .env-flap {
-      transform: rotateX(180deg);
-    }
+    .env-wrap.open .env-flap { transform:rotateX(180deg); }
 
-    /* letter inside */
     .env-letter {
-      position: absolute;
-      bottom: 12px; left: 50%;
-      transform: translateX(-50%);
-      width: 210px; height: 120px;
-      background: white;
-      border-radius: 3px;
-      box-shadow: 0 2px 10px rgba(0,0,0,.09);
-      display: flex; align-items: center; justify-content: center;
-      flex-direction: column; gap: 6px;
-      transition: transform .55s .1s cubic-bezier(.4,0,.2,1);
-      font-family: 'Dancing Script', cursive;
-      color: var(--rose);
-      z-index: 1;
+      position:absolute;
+      bottom:12px; left:50%;
+      transform:translateX(-50%);
+      width:210px; height:120px;
+      background:white;
+      border-radius:3px;
+      box-shadow:0 2px 10px rgba(0,0,0,.09);
+      display:flex; align-items:center; justify-content:center;
+      flex-direction:column; gap:6px;
+      transition:transform .55s .1s cubic-bezier(.4,0,.2,1);
+      font-family:'Dancing Script',cursive;
+      color:var(--rose); z-index:1;
     }
-    .env-wrap.open .env-letter {
-      transform: translateX(-50%) translateY(-72px);
-    }
-    .env-letter .mini-heart { font-size: 1.7rem; }
-    .env-letter .mini-text  { font-size: .83rem; color: var(--gold); letter-spacing: 1.5px; }
+    .env-wrap.open .env-letter { transform:translateX(-50%) translateY(-72px); }
+    .env-letter .mini-heart { font-size:1.7rem; }
+    .env-letter .mini-text  { font-size:.83rem; color:var(--gold); letter-spacing:1.5px; }
 
-    /* wax seal */
     .wax-seal {
-      position: absolute;
-      bottom: -18px; left: 50%;
-      transform: translateX(-50%);
-      width: 46px; height: 46px;
-      background: var(--rose);
-      border-radius: 50%;
-      display: flex; align-items: center; justify-content: center;
-      font-size: 1.25rem; color: white;
-      box-shadow: 0 3px 10px rgba(201,85,111,.45);
-      z-index: 3;
-      border: 3px solid #f5eaea;
-      transition: transform .2s;
+      position:absolute;
+      bottom:-18px; left:50%;
+      transform:translateX(-50%);
+      width:46px; height:46px;
+      background:var(--rose);
+      border-radius:50%;
+      display:flex; align-items:center; justify-content:center;
+      font-size:1.25rem; color:white;
+      box-shadow:0 3px 10px rgba(201,85,111,.45);
+      z-index:3;
+      border:3px solid #f5eaea;
+      transition:transform .2s;
     }
-    .env-wrap:hover .wax-seal {
-      transform: translateX(-50%) scale(1.1);
-    }
+    .env-wrap:hover .wax-seal { transform:translateX(-50%) scale(1.1); }
 
-    /* hint text */
     .hint {
-      font-size: .72rem;
-      letter-spacing: 3px;
-      text-transform: uppercase;
-      color: var(--gold);
-      margin-bottom: 18px;
-      opacity: 0;
-      animation: fadeHint 1s .8s forwards;
+      font-size:.72rem; letter-spacing:3px; text-transform:uppercase;
+      color:var(--gold); margin-bottom:18px;
+      opacity:0; animation:fadeHint 1s .8s forwards;
     }
-    @keyframes fadeHint {
-      to { opacity: 1; }
-    }
+    @keyframes fadeHint { to { opacity:1; } }
 
-    /* title */
     .hero-title {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(2rem, 5.5vw, 3.2rem);
-      color: var(--wine);
-      line-height: 1.25;
-      margin-bottom: 12px;
+      font-family:'Playfair Display',serif;
+      font-size:clamp(2rem,5.5vw,3.2rem);
+      color:var(--wine); line-height:1.25;
+      margin-bottom:12px;
     }
-    .hero-title em {
-      font-style: italic;
-      color: var(--rose);
-    }
+    .hero-title em { font-style:italic; color:var(--rose); }
     .hero-sub {
-      font-size: .88rem;
-      letter-spacing: 3px;
-      text-transform: uppercase;
-      color: #9a6670;
+      font-size:.88rem; letter-spacing:3px; text-transform:uppercase;
+      color:#9a6670;
     }
 
     /* page-transition overlay */
     #transition {
-      position: fixed; inset: 0;
-      background: var(--wine);
-      z-index: 999;
-      opacity: 0;
-      pointer-events: none;
-      transition: opacity .55s ease;
+      position:fixed; inset:0;
+      background:var(--wine);
+      z-index:999;
+      opacity:0;
+      pointer-events:none;
+      transition:opacity .55s ease;
     }
-    #transition.go {
-      opacity: 1;
-      pointer-events: all;
-    }
+    #transition.go { opacity:1; pointer-events:all; }
   </style>
 </head>
 <body>
@@ -206,13 +164,13 @@
     <div class="env-body"></div>
     <div class="env-letter">
       <span class="mini-heart">💌</span>
-      <span class="mini-text">For Chao Chao</span>
+      <span class="mini-text">For my ChaoChao</span>
     </div>
     <div class="env-flap"></div>
     <div class="wax-seal">♥</div>
   </div>
 
-  <h1 class="hero-title">For <em>Chao Chao</em>,<br>with all my heart.</h1>
+  <h1 class="hero-title">For <em>my ChaoChao</em>,<br>with all my heart.</h1>
   <p class="hero-sub">Every day with you is a gift</p>
 </div>
 
@@ -244,7 +202,6 @@
     if(clicked) return;
     clicked = true;
     env.classList.add('open');
-    // wait for flap animation then fade out
     setTimeout(()=>{
       overlay.classList.add('go');
       setTimeout(()=>{ window.location.href = 'love.html'; }, 580);
